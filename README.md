@@ -2,8 +2,6 @@
 So recently me and my friend (u/Pizgamkrix) have been annoyed by the 5s confirmation popup when you alt + F4 during league of legends game. We just wanted to leave the game before the nexus animation ended, so we came up with this.
 <br><br>
 If you're not interested in story and want a solution then simply download [this](http://www.mediafire.com/file/41rctsr6uoix7jx/LoLkiller.zip/file).
-<br><br>
-
 ## How it works?
 1. Download and install program.
 2. Run LoLkiller from startup menu or restart your PC
@@ -25,6 +23,7 @@ We don't wanna go into details why it doesn't work, but you can read about it on
 <br><br>
 
 So it was clear that we needed a better solution since simply minimizing our game just to close it, isn't really alt + F4'ing it.
+
 ## Application that listens for keys with higher priority than LoL
 Is it possible? Of course, discord or Team Speak uses such solutions to run push to talk.
 <br><br>
