@@ -13,16 +13,11 @@ namespace LoLkiller
 {
     public partial class Form1 : Form
     {
-        RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
         public Form1()
         {
-            reg.SetValue("LoLkiller", Application.ExecutablePath.ToString());
+            RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            reg.SetValue(Application.ProductName, Application.ExecutablePath.ToString());
             InitializeComponent();
-        }
-
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
         }
     }
 }
