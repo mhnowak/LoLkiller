@@ -92,12 +92,14 @@ namespace LoLkiller
 		{
 			if (GetActiveWindowTitle() == leagueWindowName)
             {
-				var info = new ProcessStartInfo();
-				info.FileName = "CMD.exe";
-				info.Arguments = $"/C wmic process where name='{leagueOfLegendsProcessName}' delete";
-				info.CreateNoWindow = true;
-				info.UseShellExecute = false; 
-				Process.Start(info);
+                var info = new ProcessStartInfo
+                {
+                    FileName = "CMD.exe",
+                    Arguments = $"/C wmic process where name='{leagueOfLegendsProcessName}' delete",
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                };
+                Process.Start(info);
 			}
 		}
 
