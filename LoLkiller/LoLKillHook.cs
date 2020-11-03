@@ -60,7 +60,7 @@ namespace LoLkiller
 				{
 					if (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN)
 					{
-						if (isF4Pressed) _handleAltF4();
+						if (isF4Pressed) handleAltF4();
 						isAltPressed = true;
 					}
 					else if (wParam == WM_KEYUP || wParam == WM_SYSKEYUP)
@@ -72,7 +72,7 @@ namespace LoLkiller
 				{
 					if (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN)
 					{
-						if (isAltPressed) _handleAltF4();
+						if (isAltPressed) handleAltF4();
 						isF4Pressed = true;
 					}
 					else if (wParam == WM_KEYUP || wParam == WM_SYSKEYUP)
@@ -84,7 +84,7 @@ namespace LoLkiller
 			return CallNextHookEx(hhook, code, wParam, ref lParam);
 		}
 
-		private void _handleAltF4()
+		private void handleAltF4()
 		{
 			// Finds the game process to kill
 			System.Diagnostics.Process.Start("CMD.exe", "/C wmic process where name='League of Legends.exe' delete");

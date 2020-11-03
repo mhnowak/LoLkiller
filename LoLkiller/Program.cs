@@ -6,7 +6,7 @@ namespace LoLkiller
     {
         static void Main()
         {
-            LoLKillHook hook = new LoLKillHook();
+            new LoLKillHook();
             Form form = new Form1();
             Application.Run();
             form.Hide();
