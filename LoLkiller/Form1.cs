@@ -15,8 +15,6 @@ namespace LoLkiller
     {
         public Form1()
         {
-            RegistryKey reg = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-            reg.SetValue(Application.ProductName, Application.ExecutablePath.ToString());
             InitializeComponent();
         }
     }
