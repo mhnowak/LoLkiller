@@ -5,9 +5,9 @@ namespace LoLkiller
 {
 	class LoLKillHook
 	{
-		public delegate int keyboardHookProc(int code, int wParam, ref keyboardHook lParam);
+		public delegate int keyboardHookProc(int code, int wParam, ref KeyboardHook lParam);
 
-		public struct keyboardHook
+		public struct KeyboardHook
 		{
 			public int vkCode;
 			public int scanCode;
@@ -51,7 +51,7 @@ namespace LoLkiller
 			UnhookWindowsHookEx(hhook);
 		}
 
-		public int hookProc(int code, int wParam, ref keyboardHook lParam)
+		public int hookProc(int code, int wParam, ref KeyboardHook lParam)
 		{
 			if (code >= 0)
 			{
@@ -97,7 +97,7 @@ namespace LoLkiller
 		static extern bool UnhookWindowsHookEx(IntPtr hInstance);
 
 		[DllImport("user32.dll")]
-		static extern int CallNextHookEx(IntPtr idHook, int nCode, int wParam, ref keyboardHook lParam);
+		static extern int CallNextHookEx(IntPtr idHook, int nCode, int wParam, ref KeyboardHook lParam);
 
 		[DllImport("kernel32.dll")]
 		static extern IntPtr LoadLibrary(string lpFileName);
