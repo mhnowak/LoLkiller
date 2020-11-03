@@ -76,13 +76,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_CB0D42345523E9E250AD80FF3EA36211"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_73C3ED9AD3554C51BB118F3F0E343524"
+        "OwnerKey" = "8:_3F38934DD1854245A8B42F3E75FE525B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -94,7 +88,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_016A4EB2D0ED41AE8C4B62FFA87C0B25"
+        "OwnerKey" = "8:_73C3ED9AD3554C51BB118F3F0E343524"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -106,19 +100,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_077EAE094E474B4E848EEBA7DFC51F29"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_087F236E3C754F4C8B759EF639A3B6E0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3F38934DD1854245A8B42F3E75FE525B"
+        "OwnerKey" = "8:_077EAE094E474B4E848EEBA7DFC51F29"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_016A4EB2D0ED41AE8C4B62FFA87C0B25"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_CB0D42345523E9E250AD80FF3EA36211"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -139,6 +139,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -155,26 +163,20 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_052F82B0D3534B4AB19F03B3B46A9544"
-            {
-            "Name" = "8:LoLkillerOpener.exe"
-            "Condition" = "8:"
-            "Object" = "8:_EFA960E5AB29479EA638AFADD54FC132"
-            "FileType" = "3:2"
-            "InstallAction" = "3:2"
-            "Arguments" = "8:[TARGETDIR]LoLkiller.exe"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_F4EC190E_5A07_42F5_9ED2_B0F601B7230F"
-            "InstallerClass" = "11:FALSE"
-            "CustomActionData" = "8:"
-            }
         }
         "DefaultFeature"
         {
@@ -211,7 +213,7 @@
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:C:\\Windows\\Microsoft.NET\\assembly\\GAC_MSIL\\System.Configuration\\v4.0_4.0.0.0__b03f5f7f11d50a3a\\System.Configuration.dll"
+            "SourcePath" = "8:C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Configuration\\v4.0_4.0.0.0__b03f5f7f11d50a3a\\System.Configuration.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_746B82CBA0D24AD28ED1BCCADBB5172B"
@@ -242,7 +244,7 @@
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:C:\\Windows\\Microsoft.NET\\assembly\\GAC_MSIL\\System\\v4.0_4.0.0.0__b77a5c561934e089\\System.dll"
+            "SourcePath" = "8:C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System\\v4.0_4.0.0.0__b77a5c561934e089\\System.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_746B82CBA0D24AD28ED1BCCADBB5172B"
@@ -273,7 +275,7 @@
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:C:\\Windows\\Microsoft.NET\\assembly\\GAC_MSIL\\System.Windows.Forms\\v4.0_4.0.0.0__b77a5c561934e089\\System.Windows.Forms.dll"
+            "SourcePath" = "8:C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Windows.Forms\\v4.0_4.0.0.0__b77a5c561934e089\\System.Windows.Forms.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_746B82CBA0D24AD28ED1BCCADBB5172B"
@@ -304,7 +306,7 @@
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:C:\\Windows\\Microsoft.NET\\assembly\\GAC_MSIL\\System.Drawing\\v4.0_4.0.0.0__b03f5f7f11d50a3a\\System.Drawing.dll"
+            "SourcePath" = "8:C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Drawing\\v4.0_4.0.0.0__b03f5f7f11d50a3a\\System.Drawing.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_746B82CBA0D24AD28ED1BCCADBB5172B"
@@ -331,11 +333,11 @@
                 {
                     "_73C3ED9AD3554C51BB118F3F0E343524"
                     {
-                    "Name" = "8:System.XML.dll"
+                    "Name" = "8:System.Xml.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:C:\\Windows\\Microsoft.NET\\assembly\\GAC_MSIL\\System.Xml\\v4.0_4.0.0.0__b77a5c561934e089\\System.XML.dll"
+            "SourcePath" = "8:C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Xml\\v4.0_4.0.0.0__b77a5c561934e089\\System.Xml.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_746B82CBA0D24AD28ED1BCCADBB5172B"
@@ -366,7 +368,7 @@
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:C:\\Windows\\Microsoft.NET\\assembly\\GAC_MSIL\\System.Core\\v4.0_4.0.0.0__b77a5c561934e089\\System.Core.dll"
+            "SourcePath" = "8:C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_MSIL\\System.Core\\v4.0_4.0.0.0__b77a5c561934e089\\System.Core.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_746B82CBA0D24AD28ED1BCCADBB5172B"
@@ -453,7 +455,7 @@
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:C:\\Windows\\Microsoft.NET\\assembly\\GAC_32\\mscorlib\\v4.0_4.0.0.0__b77a5c561934e089\\mscorlib.dll"
+            "SourcePath" = "8:C:\\WINDOWS\\Microsoft.Net\\assembly\\GAC_32\\mscorlib\\v4.0_4.0.0.0__b77a5c561934e089\\mscorlib.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_746B82CBA0D24AD28ED1BCCADBB5172B"
