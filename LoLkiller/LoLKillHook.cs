@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace WindowsFormsApp1
+namespace LoLkiller
 {
 	class LoLKillHook
 	{

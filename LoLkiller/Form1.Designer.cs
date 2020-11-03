@@ -1,16 +1,16 @@
-﻿namespace WindowsFormsApp1
+﻿namespace LoLkiller
 {
     partial class Form1
     {
         /// <summary>
-        /// Required designer variable.
+        /// Wymagana zmienna projektanta.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Clean up any resources being used.
+        /// Wyczyść wszystkie używane zasoby.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param name="disposing">prawda, jeżeli zarządzane zasoby powinny zostać zlikwidowane; Fałsz w przeciwnym wypadku.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,11 +20,11 @@
             base.Dispose(disposing);
         }
 
-        #region Windows Form Designer generated code
+        #region Kod generowany przez Projektanta formularzy systemu Windows
 
         /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
+        /// Metoda wymagana do obsługi projektanta — nie należy modyfikować
+        /// jej zawartości w edytorze kodu.
         /// </summary>
         private void InitializeComponent()
         {
@@ -44,3 +44,4 @@
         #endregion
     }
 }
+

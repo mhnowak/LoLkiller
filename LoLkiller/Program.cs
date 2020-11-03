@@ -1,12 +1,9 @@
-﻿using System;
+﻿using System.Windows.Forms;
 
-using System.Windows.Forms;
-
-namespace WindowsFormsApp1
+namespace LoLkiller
 {
     static class Program
     {
-        [STAThread]
         static void Main()
         {
             LoLKillHook hook = new LoLKillHook();
