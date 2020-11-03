@@ -8,7 +8,6 @@ If you're not interested in story and want a solution then simply download [this
 3. Test in your game!
 PS: You don't need to run LoLkiller everytime you wanna play league, the program will automatically run on system startup. (You can obviously disable it tho).
 ## How did we get here?
-<br><br>
 First we needed a way to kill League of Legend's game process and you can do it in cmd by this command:
 ```bat
 wmic process where name="League of Legends.exe" delete
