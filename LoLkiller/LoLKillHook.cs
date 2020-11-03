@@ -5,9 +5,9 @@ namespace LoLkiller
 {
 	class LoLKillHook
 	{
-		public delegate int keyboardHookProc(int code, int wParam, ref KeyboardHook lParam);
+		public delegate int keyboardHookProc(int code, int wParam, ref keyboardHook lParam);
 
-		public struct KeyboardHook
+		public struct keyboardHook
 		{
 			public int vkCode;
 			public int scanCode;
@@ -51,7 +51,7 @@ namespace LoLkiller
 			UnhookWindowsHookEx(hhook);
 		}
 
-		public int hookProc(int code, int wParam, ref KeyboardHook lParam)
+		public int hookProc(int code, int wParam, ref keyboardHook lParam)
 		{
 			if (code >= 0)
 			{
@@ -60,7 +60,7 @@ namespace LoLkiller
 				{
 					if (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN)
 					{
-						if (isF4Pressed) handleAltF4();
+						if (isF4Pressed) _handleAltF4();
 						isAltPressed = true;
 					}
 					else if (wParam == WM_KEYUP || wParam == WM_SYSKEYUP)
@@ -72,7 +72,7 @@ namespace LoLkiller
 				{
 					if (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN)
 					{
-						if (isAltPressed) handleAltF4();
+						if (isAltPressed) _handleAltF4();
 						isF4Pressed = true;
 					}
 					else if (wParam == WM_KEYUP || wParam == WM_SYSKEYUP)
@@ -84,7 +84,7 @@ namespace LoLkiller
 			return CallNextHookEx(hhook, code, wParam, ref lParam);
 		}
 
-		private void handleAltF4()
+		private void _handleAltF4()
 		{
 			// Finds the game process to kill
 			System.Diagnostics.Process.Start("CMD.exe", "/C wmic process where name='League of Legends.exe' delete");
@@ -97,7 +97,7 @@ namespace LoLkiller
 		static extern bool UnhookWindowsHookEx(IntPtr hInstance);
 
 		[DllImport("user32.dll")]
-		static extern int CallNextHookEx(IntPtr idHook, int nCode, int wParam, ref KeyboardHook lParam);
+		static extern int CallNextHookEx(IntPtr idHook, int nCode, int wParam, ref keyboardHook lParam);
 
 		[DllImport("kernel32.dll")]
 		static extern IntPtr LoadLibrary(string lpFileName);
