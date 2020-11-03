@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.InteropServices;
+using System.Text;
 
 namespace LoLkiller
 {
@@ -24,6 +26,8 @@ namespace LoLkiller
 
 		const int ALT = 164;
 		const int F4 = 115;
+		const String leagueWindowName = "League of Legends (TM) Client";
+		const String leagueOfLegendsProcessName = "League of Legends.exe";
 
 		IntPtr hhook = IntPtr.Zero;
 
@@ -32,26 +36,26 @@ namespace LoLkiller
 
 		public LoLKillHook()
 		{
-			hook();
+			Hook();
 		}
 
 		~LoLKillHook()
 		{
-			unhook();
+			UnHook();
 		}
 
-		public void hook()
+		public void Hook()
 		{
 			IntPtr hInstance = LoadLibrary("User32");
-			hhook = SetWindowsHookEx(WH_KEYBOARD_LL, hookProc, hInstance, 0);
+			hhook = SetWindowsHookEx(WH_KEYBOARD_LL, HookProc, hInstance, 0);
 		}
 
-		public void unhook()
+		public void UnHook()
 		{
 			UnhookWindowsHookEx(hhook);
 		}
 
-		public int hookProc(int code, int wParam, ref KeyboardHook lParam)
+		public int HookProc(int code, int wParam, ref KeyboardHook lParam)
 		{
 			if (code >= 0)
 			{
@@ -60,7 +64,7 @@ namespace LoLkiller
 				{
 					if (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN)
 					{
-						if (isF4Pressed) handleAltF4();
+						if (isF4Pressed) KillLeagueOfLegends();
 						isAltPressed = true;
 					}
 					else if (wParam == WM_KEYUP || wParam == WM_SYSKEYUP)
@@ -72,7 +76,7 @@ namespace LoLkiller
 				{
 					if (wParam == WM_KEYDOWN || wParam == WM_SYSKEYDOWN)
 					{
-						if (isAltPressed) handleAltF4();
+						if (isAltPressed) KillLeagueOfLegends();
 						isF4Pressed = true;
 					}
 					else if (wParam == WM_KEYUP || wParam == WM_SYSKEYUP)
@@ -84,11 +88,39 @@ namespace LoLkiller
 			return CallNextHookEx(hhook, code, wParam, ref lParam);
 		}
 
-		private void handleAltF4()
+		private void KillLeagueOfLegends()
 		{
-			// Finds the game process to kill
-			System.Diagnostics.Process.Start("CMD.exe", "/C wmic process where name='League of Legends.exe' delete");
+			if (GetActiveWindowTitle() == leagueWindowName)
+            {
+                var info = new ProcessStartInfo
+                {
+                    FileName = "CMD.exe",
+                    Arguments = $"/C wmic process where name='{leagueOfLegendsProcessName}' delete",
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                };
+                Process.Start(info);
+			}
 		}
+
+		private string GetActiveWindowTitle()
+		{
+			const int nChars = 256;
+			StringBuilder Buff = new StringBuilder(nChars);
+			IntPtr handle = GetForegroundWindow();
+
+			if (GetWindowText(handle, Buff, nChars) > 0)
+			{
+				return Buff.ToString();
+			}
+			return null;
+		}
+
+		[DllImport("user32.dll")]
+		static extern IntPtr GetForegroundWindow();
+
+		[DllImport("user32.dll")]
+		static extern int GetWindowText(IntPtr hWnd, StringBuilder text, int count);
 
 		[DllImport("user32.dll")]
 		static extern IntPtr SetWindowsHookEx(int idHook, keyboardHookProc callback, IntPtr hInstance, uint threadId);
