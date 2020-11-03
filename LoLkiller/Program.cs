@@ -1,22 +1,65 @@
-﻿using System.Threading;
+﻿using NonInvasiveKeyboardHookLibrary;
+using System;
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Security.AccessControl;
+using System.Security.Principal;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace LoLkiller
 {
     static class Program
     {
-        private static Mutex mutex = null;
 
         static void Main()
         {
-            mutex = new Mutex(true, Application.ProductName, out bool createdNew);
+            string appGuid = ((GuidAttribute)Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(GuidAttribute), false).GetValue(0)).Value.ToString();
 
-            if (!createdNew) return;
+            string mutexId = string.Format("Global\\{{{0}}}", appGuid);
 
-            new LoLKillHook();
-            Form form = new Form1();
-            Application.Run();
-            form.Hide();
+            bool createdNew;
+
+            var allowEveryoneRule = new MutexAccessRule(new SecurityIdentifier(WellKnownSidType.WorldSid, null), MutexRights.FullControl, AccessControlType.Allow);
+
+            var securitySettings = new MutexSecurity();
+            securitySettings.AddAccessRule(allowEveryoneRule);
+
+            using (var mutex = new Mutex(false, mutexId, out createdNew, securitySettings))
+            {
+                var hasHandle = false;
+                try
+                {
+                    try
+                    {
+                        hasHandle = mutex.WaitOne(5000, false);
+                        if (hasHandle == false)
+                            throw new TimeoutException("Timeout waiting for exclusive access");
+                    }
+                    catch (AbandonedMutexException)
+                    {
+                        hasHandle = true;
+                    }
+
+                    var keyboardHookManager = new KeyboardHookManager();
+                    keyboardHookManager.Start();
+
+                    var lolKiller = new LoLKiller();
+                    keyboardHookManager.RegisterHotkey(ModifierKeys.Alt, 115, () =>
+                    {
+                        lolKiller.Kill();
+                    });
+
+                    Form form = new Form1();
+                    Application.Run();
+                    form.Hide();
+                }
+                finally
+                {
+                    if (hasHandle)
+                        mutex.ReleaseMutex();
+                }
+            }
         }
     }
 }
