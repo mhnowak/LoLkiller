@@ -12,7 +12,7 @@ First we needed a way to kill League of Legend's game process and you can do it 
 ```bat
 wmic process where name="League of Legends.exe" delete
 ```
-Now you need to bind that command with some hotkey. Windows allows that by creating a shortcut for your `.bat` file and specifying whichever shortcut key you'd like to use to execute that script.
+Now you need to bind that command with some hotkey. Windows allows that by creating a shortcut for your `.bat` file and [specifying whichever shortcut key you'd like to use to execute that script](https://i.stack.imgur.com/eMpiM.png).
 <br><br>
 
 Okay, but does it actually work in game? Unfortunately, no.
